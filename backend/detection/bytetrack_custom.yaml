@@ -1,0 +1,16 @@
+# Tuned ByteTrack config for dense, overlapping traffic from a fixed elevated
+# camera, processed at a few frames/sec on CPU (not full native video fps).
+# The default match_thresh (0.8) is too strict for this - boxes shift/overlap
+# enough between calls that tracks get dropped and re-created as new IDs,
+# which looks like flickering boxes. Loosening matching and extending the
+# lost-track buffer keeps the same car's ID stable through brief occlusion.
+tracker_type: bytetrack
+track_high_thresh: 0.25
+track_low_thresh: 0.1
+# Must stay below the lowest per-class confidence override (bike: 0.25 in
+# config.py) or ByteTrack refuses to ever start a track for it, no matter
+# what detector.py's own class-confidence filter allows.
+new_track_thresh: 0.2
+track_buffer: 60
+match_thresh: 0.9
+fuse_score: True

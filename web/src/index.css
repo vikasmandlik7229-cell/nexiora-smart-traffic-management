@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (Tailwind v4 defaults to prefers-color-scheme;
+   this restores the old `dark:` = `.dark` ancestor behaviour so we can
+   toggle it manually, with dark as the default per CLAUDE.md 6.12). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Signal colours, as specified in CLAUDE.md 6.12 */
+  --color-signal-red: #e53935;
+  --color-signal-amber: #ffb300;
+  --color-signal-green: #43a047;
+
+  /* Primary accent - #2563EB per the Smart Traffic AI design spec */
+  --color-accent-50: #eff6ff;
+  --color-accent-100: #dbeafe;
+  --color-accent-400: #60a5fa;
+  --color-accent-500: #3b82f6;
+  --color-accent-600: #2563eb;
+  --color-accent-700: #1d4ed8;
+
+  /* Dark navy - sidebar background + heading text, per the design spec */
+  --color-navy-900: #0f1a2e;
+  --color-navy-800: #17243a;
+  --color-navy-700: #202f4a;
+  --color-navy-600: #2c3e5c;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  @apply bg-slate-50 text-navy-800 dark:bg-slate-950 dark:text-slate-100;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Smaller, consistent scrollbars for the dashboard's scrollable panels */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400 dark:bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

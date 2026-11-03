@@ -1,0 +1,9 @@
+# Install CUDA-enabled torch FIRST, from its own venv (never the project's
+# main CPU-only venv) - see CLAUDE.md section 8a:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+
+ultralytics==8.4.190
+huggingface_hub>=0.26
+tqdm
+pillow
+matplotlib

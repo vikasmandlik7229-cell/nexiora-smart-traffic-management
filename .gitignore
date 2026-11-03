@@ -1,0 +1,66 @@
+# Python
+backend/venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment & secrets
+.env
+backend/.env
+
+# Local database (backend/db/sql_client.py) - generated, not source
+backend/data/smart_traffic.db
+backend/data/smart_traffic.db-wal
+backend/data/smart_traffic.db-shm
+
+# Trained model weights & classifier data - never published (see README)
+*.pt
+*.onnx
+*.npz
+*.joblib
+backend/data/models/
+backend/training/weights/
+backend/training/runs/
+backend/prediction/models/
+backend/prediction/data/
+
+# Frame extracts from real footage used for manual verification/data-cleaning - not published
+backend/training/reports/count_check/
+backend/training/reports/label_check/
+
+# Real traffic footage, captured evidence images, generated reports - not published
+backend/videos/
+backend/data/violations_images/
+backend/data/accident_images/
+backend/reports/output/
+
+# Training dataset + training-only venv (~170GB combined) - never commit
+backend/training/uvh26_data/
+backend/training/uvh26_yolo/
+backend/training/venv_train/
+
+# Logs
+*.log
+backend/api_server_test*.log
+backend/training/*.log
+
+# Leftover pre-restructure stub packages (superseded by air_quality/, emergency/, signals/, detection/)
+backend/airquality/
+backend/ambulance/
+backend/ml/
+backend/signal_control/
+
+# Abandoned Flutter scaffold (project shipped as a web app instead - see CLAUDE.md)
+frontend/
+
+# Node (web/ has its own .gitignore too, kept for when it's opened standalone)
+web/node_modules/
+web/dist/
+
+# Tooling caches
+.claude/
+.firebase/
+
+# OS / Editor
+.DS_Store
